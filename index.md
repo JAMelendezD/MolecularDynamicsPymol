@@ -1,6 +1,17 @@
-# MNIST
+# Prerequisites
 
-This is a trained network to distinguish written digets from 0 to 9 from any image. The notebook loads the model (99.17% accuracy) trained with the MNIST dataset. Scripts with the model and the training can be found. Three example images are provided to test the network, the images or not from the trainig set nor the testing set. To test it images have to be written on a black background with a white brush.
+The only assumption we make for this tutorial is that you have GROMACS and Pymol installed in your computer. For our case we are using Ubuntu, GROMACS 2018.3 and  Pymol 1.8.
+
+
+
+
+
+
+
+
+# g_lomepro
+
+The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro] (http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and  
 
 
 
