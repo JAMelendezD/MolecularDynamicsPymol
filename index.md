@@ -4,7 +4,7 @@ The only assumption we make for this tutorial is that you have GROMACS and Pymol
 
 # Pymol Basics
 
-## Protein
+## Proteins
 
 We are gonna start with some pymol basics based on a enzyme called Mouse Thymidylate Synthase this enzyme catalyzes the conversion of deoxyuridine monophosphate (dUMP) to deoxythymidine monophosphate (dTMP). So the first thing we are gonna do is start a log file, download the protein from the protein data bank, remove the solvent and visualize it. Using the pymol terminal type: 
 
@@ -65,7 +65,7 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
   <img width="800" src="./media/example1.png">
 </p>
 
-## Membrane
+## Membranes
 
 In this section we are gonna go over the basics on how to make a molecular dynamics simulation using GROMACS and the charmm force field. We begin by going to the following webpage [charmm-gui](http://www.charmm-gui.org/). Here we select input generator followed by membrane builder, scroll down and then select membrane only system. Follow the next image closely.
 
