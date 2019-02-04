@@ -1,11 +1,38 @@
 # Prerequisites
 
-The only assumption we make for this tutorial is that you have GROMACS and Pymol installed in your computer. For our case we are using Ubuntu, GROMACS 2018.3 and  Pymol 1.8.
+The only assumption we make for this tutorial is that you have GROMACS and Pymol installed in your computer. For our case we are using Ubuntu 18.04, GROMACS 2018.3 and  Pymol 1.8.
 
+# Pymol Basics
 
+We are gonna start with some pymol basics based on a enzyme called Mouse Thymidylate Synthase this enzyme catalyzes the conversion of deoxyuridine monophosphate (dUMP) to deoxythymidine monophosphate (dTMP). So the first thing we are gonna do is start a log file, download the protein from the protein data bank, remove the solvent and visualize it. Using the pymol terminal type: 
 
+```
+log_open log.pml
+fetch 6F6Z
+hide
+remove solvent
+show cartoon, 6F6Z
+```
+Most of the features in pymol can be typed in or selected in the Pymol viwer. Say for example we would like to change the color of our protein we could type: color cyan, 6F6Z or we could select in the Viwer by going to 6F6Z then clicking c (color) going down cyans and then cyan. For this case we are gonna select c then by ss and finally Helix (cyan) Sheet (magenta) Loop (pink).
 
+<p align="center">
+  <img width="800" src="./media/color.png">
+</p>
 
+As you can see now we have our protein not only showing its secondary structure but also in different color so we can distinguish it. Now we are gonna focus on the ligands click on the letter S of the pymol viwer at the bottom right side of the screen a scroll bar should appear on top of the screen, her you can look and select every residue of your .pdb file. Scroll all the way to the right, you should see 4 particular residues named NOH and TGQ. Now that we know the names of our ligands we are gonna select them using the terminal.
+
+```
+select lig1, resn NOH
+select lig2, resn TGQ
+
+```
+You should know see in the viwer two new rows under 6F6Z, notice that know we can apply individal actions to our new selections. In this case we used resn or resname to select our residues we could have also used resi wich point towards the specific residue number. Now we are gonna show our ligands as sticks and color them.
+
+```
+select lig1, resn NOH
+select lig2, resn TGQ
+
+```
 
 
 
