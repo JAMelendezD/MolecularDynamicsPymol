@@ -52,7 +52,7 @@ Now we are ready to create a nice picture. Change the color of the protein to gr
 set ray_trace_mode, 1
 ray 2000
 ```
-Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x 
+Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width but you can control both dimensions if you type 'ray 2000,1356' change the ray_trace_mode from 0 to 3 an see what type of images you can get.
 
 
 <p align="center">
@@ -65,7 +65,5 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
 The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro] (http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and  
 
 
-
-
-<a name="footnote1">1</a>:To learn how to do this graphs you can visit:[HowToPlot](https://github.com/JAMelendezD/HowToGraph "Julian's Repository") or check the article [Rougier Plos One Paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833 "Plos One"). 
+<a name="footnote1">1</a>: Check the article about g_lomepro [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
