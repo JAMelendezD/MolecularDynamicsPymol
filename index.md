@@ -67,7 +67,7 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
 
 ## Membrane
 
-In this section we are gonna go over the basics on how to make a molecular dynamics simulation using GROMACS and the charmm force field. We begin by going to the webpage of the [charmm-gui](http://www.charmm-gui.org/). Here we select input generator followed by membrane builder, scroll down and then select membrane only system. Follow the next image closely.
+In this section we are gonna go over the basics on how to make a molecular dynamics simulation using GROMACS and the charmm force field. We begin by going to the following webpage [charmm-gui](http://www.charmm-gui.org/). Here we select input generator followed by membrane builder, scroll down and then select membrane only system. Follow the next image closely.
 
 
 <p align="center">
