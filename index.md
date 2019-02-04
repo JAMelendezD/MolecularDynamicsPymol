@@ -55,15 +55,16 @@ ray 2000
 Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x 
 
 
+<p align="center">
+  <img width="800" src="./media/example1.png">
+</p>
+
+
 # g_lomepro
 
 The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro] (http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and  
 
 
-<p align="center">
-  <img width="200" height="200" src="./media/example1.png">
-  <img width="200" height="200" src="./media/example2.png">
-</p>
 
 
 <a name="footnote1">1</a>:To learn how to do this graphs you can visit:[HowToPlot](https://github.com/JAMelendezD/HowToGraph "Julian's Repository") or check the article [Rougier Plos One Paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003833 "Plos One"). 
