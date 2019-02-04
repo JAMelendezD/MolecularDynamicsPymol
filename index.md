@@ -84,8 +84,7 @@ Change all your setting to match the image and click on next step. When this ste
 
 
 ```
-gmx grompp -f step6.0_minimization.mdp -o step6.0_minimization.tpr -c step5_charmm2gmx.pdb -p topol.top -r
-step5_charmm2gmx.pdb -maxwarn -1
+gmx grompp -f step6.0_minimization.mdp -o step6.0_minimization.tpr -c step5_charmm2gmx.pdb -p topol.top -r step5_charmm2gmx.pdb -maxwarn -1
 gmx mdrun -v -deffnm step6.0_minimization
 ```
 Now that you have your system in a local minimum you have to equilibrate it by slowly releasing it from its restrains for this we are gonna run a series of 6 steps:
