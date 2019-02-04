@@ -13,27 +13,46 @@ hide
 remove solvent
 show cartoon, 6F6Z
 ```
-Most of the features in pymol can be typed in or selected in the Pymol viwer. Say for example we would like to change the color of our protein we could type: color cyan, 6F6Z or we could select in the Viwer by going to 6F6Z then clicking c (color) going down cyans and then cyan. For this case we are gonna select c then by ss and finally Helix (cyan) Sheet (magenta) Loop (pink).
+Most of the features in pymol can be typed in or selected in the Pymol viwer. Say for example we would like to change the color of our protein we could type: color cyan, 6F6Z or we could select in the Viwer by going to 6F6Z then clicking c (color) going down cyans and then cyan. For now we are gonna select 'c' then 'by ss' and finally 'Helix (cyan) Sheet (magenta) Loop (pink)'. Notice that if you select color by chain you can see that our protein is composed of two chains.
 
 <p align="center">
   <img width="800" src="./media/color.png">
 </p>
 
-As you can see now we have our protein not only showing its secondary structure but also in different color so we can distinguish it. Now we are gonna focus on the ligands click on the letter S of the pymol viwer at the bottom right side of the screen a scroll bar should appear on top of the screen, her you can look and select every residue of your .pdb file. Scroll all the way to the right, you should see 4 particular residues named NOH and TGQ. Now that we know the names of our ligands we are gonna select them using the terminal.
+As you can see now we have our protein not only showing its secondary structure but also in different color so we can distinguish it. Now we are gonna focus on the ligands click on the letter S of the pymol viwer at the bottom right side of the screen a scroll bar should appear on top of the screen, her you can look and select every residue of your .pdb file. Scroll all the way to the right, you should see 4 particular residues named NOH and TGQ. 
+
+
+<p align="center">
+  <img width="800" src="./media/residues.png">
+</p>
+
+Now that we know the names of our ligands we are gonna select them using the terminal.
 
 ```
 select lig1, resn NOH
 select lig2, resn TGQ
+```
+You should know see in the viwer two new rows under 6F6Z, notice that know we can apply individal actions to our new selections. In this case we used resn or resname to select our residues we could have also used resi wich point towards the specific residue number. Now we are gonna show our ligands as spheres. 
 
 ```
-You should know see in the viwer two new rows under 6F6Z, notice that know we can apply individal actions to our new selections. In this case we used resn or resname to select our residues we could have also used resi wich point towards the specific residue number. Now we are gonna show our ligands as sticks and color them.
-
-```
-select lig1, resn NOH
-select lig2, resn TGQ
-
+show spheres, lig1
+show spheres, lig2
+set sphere_scale, 0.7
 ```
 
+And color them using the viwer selecting color by element and select any color we like. Notice we also changed the size of our spheres from a default of 1 to 0.7. Finally we are gonna select our protein (6F6Z) an show it acessible surface. In the viwer select the letter s (show) on the top right and select surface.  
+
+<p align="center">
+  <img width="800" src="./media/surface.png">
+</p>
+
+Now we are ready to create a nice picture. Change the color of the protein to gray80 here, since we never defined the protein properly we have to change the color of our ligands again to any color by element. Now we are gonna look at the options we have on top of the pymol terminal window. Select display then background, set the background color to white and unselect the opaque option. Now select display then quality and select max quality. Now go to setting then transparency then surface and select 50. Finally go to scene then cache and select optimize. Now we are gonna ray trace our image, this setting has many options depending on what you want so we suggest reading the documentation in pymol. For know lest only test ray_trace_mode.
+
+```
+set ray_trace_mode, 1
+ray 2000
+```
+Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x 
 
 
 # g_lomepro
