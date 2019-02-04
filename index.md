@@ -61,8 +61,8 @@ The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</su
 
 
 <p align="center">
-  <img width="200" height="200" src="./media/dog.jpg">
-  <img width="200" height="200" src="./media/cat.jpg">
+  <img width="200" height="200" src="./media/example1.png">
+  <img width="200" height="200" src="./media/example2.png">
 </p>
 
 
