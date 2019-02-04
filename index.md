@@ -65,6 +65,36 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
   <img width="800" src="./media/example1.png">
 </p>
 
+## Membrane
+
+In this section we are gonna go over the basics on how to make a molecular dynamics simulation using GROMACS and the charmm force field. We begin by going to the webpage of the [charmm-gui](http://www.charmm-gui.org/). Here we select input generator followed by membrane builder, scroll down and then select membrane only system. Follow the next image closely.
+
+
+<p align="center">
+  <img width="800" src="./media/charmm1.png">
+</p>
+
+After adding the number of lipids in this case 64 DPPC lipids in each leaflet, press show system info and then next step. Here the only change we are gonna make is changing KCl for NaCl. Press next step until you see the following screen:
+
+<p align="center">
+  <img width="800" src="./media/charmm2.png">
+</p>
+
+Change all your setting to match the image and click on next step. When this step is done download and extract the files. Then copy the gromacs folder (the one inside what you just downloaded) to your working directory. Now you have to run the energy minimization .mdp using gromacs.
+
+
+```
+gmx grompp -f step6.0_minimization.mdp -o step6.0_minimization.tpr -c step5_charmm2gmx.pdb -p topol.top -r
+step5_charmm2gmx.pdb -maxwarn -1
+gmx mdrun -v -deffnm step6.0_minimization
+```
+Now that you have your system in a local minimum you have to equilibrate it by slowly releasing it from its restrains for this we are gonna run a series of 6 steps:
+
+```
+gmx grompp -f step6.1_equilibration.mdp -o step6.1_equilibration.tpr -c step6.0_minimization.gro -p topol.top -n index.ndx -r step5_charmm2gmx.pdb -maxwarn -1
+gmx mdrun -v -deffnm step6.1_equilibration
+```
+Run this same code changing the flags for each step taking into account that the restrictions, topology and index files never change and the -c flag is the final conformation of the previous step, -f is your next .mdp file and -o your desire output.
 
 # g_lomepro
 
