@@ -4,6 +4,8 @@ The only assumption we make for this tutorial is that you have GROMACS and Pymol
 
 # Pymol Basics
 
+## Protein
+
 We are gonna start with some pymol basics based on a enzyme called Mouse Thymidylate Synthase this enzyme catalyzes the conversion of deoxyuridine monophosphate (dUMP) to deoxythymidine monophosphate (dTMP). So the first thing we are gonna do is start a log file, download the protein from the protein data bank, remove the solvent and visualize it. Using the pymol terminal type: 
 
 ```
