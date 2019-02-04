@@ -63,10 +63,6 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
   <img width="800" src="./media/example1.png">
 </p>
 
-<p align="center">
-  <img width="800" src="./media/example3.png">
-</p>
-
 
 # g_lomepro
 
