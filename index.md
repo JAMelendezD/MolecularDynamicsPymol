@@ -71,13 +71,13 @@ In this section we are gonna go over the basics on how to make a molecular dynam
 
 
 <p align="center">
-  <img width="800" src="./media/charmm1.png">
+  <img width="600" src="./media/charmm1.png">
 </p>
 
 After adding the number of lipids in this case 64 DPPC lipids in each leaflet, press show system info and then next step. Here the only change we are gonna make is changing KCl for NaCl. Press next step until you see the following screen:
 
 <p align="center">
-  <img width="800" src="./media/charmm2.png">
+  <img width="600" src="./media/charmm2.png">
 </p>
 
 Change all your setting to match the image and click on next step. When this step is done download and extract the files. Then copy the gromacs folder (the one inside what you just downloaded) to your working directory. Now you have to run the energy minimization .mdp using gromacs.
