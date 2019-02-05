@@ -54,7 +54,7 @@ Now we are ready to create a nice picture. Change the color of the protein to gr
 set ray_trace_mode, 1
 ray 2000
 ```
-Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width but you can control both dimensions if you type 'ray 2000,1356' change the ray_trace_mode from 0 to 3 an see what type of images you can get.
+Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code to save the image just type 'png filename.png' now that you saved it you can move around to get another snap not forgetting to ray trace before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width but you can control both dimensions if you type 'ray 2000,1356' change the ray_trace_mode from 0 to 3 an see what type of images you can get. Finally close pymol and check the log file we created at the beginning it should have all the comands you typed and also the ones you instructed with the mouse.
 
 
 <p align="center">
@@ -93,9 +93,21 @@ Now that you have your system in a local minimum you have to equilibrate it by s
 gmx grompp -f step6.1_equilibration.mdp -o step6.1_equilibration.tpr -c step6.0_minimization.gro -p topol.top -n index.ndx -r step5_charmm2gmx.pdb -maxwarn -1
 gmx mdrun -v -deffnm step6.1_equilibration
 ```
-Run this same code changing the flags for each step taking into account that the restrictions, topology and index files never change and the -c flag is the final conformation of the previous step, -f is your next .mdp file and -o your desire output.
+Run this same code changing the flags for each step taking into account that the restrictions, topology and index files never change and the -c flag is the final conformation of the previous step, -f is your next .mdp file and -o your desire output. You can look into the trajectories you are generating at every step by opening the .gro file with pymol and the typing the following in the pymol terminal:
 
-# g_lomepro
+```
+load_traj step6.3_equilibration.trr, step6.3_equilibration
+```
+
+When you are done with all the equilibration steps the next step is the actual simulation or the production run for this we will have to modify the step7_production.mdp file at this point if you are a beginner it is best to edit the file with a supervisor since this file is very specific for every project. Once you have edited this file you can use grompp followed by mdrun in the same way we did for the equilibration steps. Normally production runs are run in a cluster to decrease the walltime. At the end of the production run our trajectory would normally be written to a .xtc file meaning it has double presicion. We can look at the trajectory using pymol again. Many tutorials on analyzing trajectories globally can be found in the internet, however, in this tutorial we would like to focus on local properties. So I suggest you first go to the [tutorial](https://mptg-cbp.github.io/teaching/tutorials/membranes/index.html) by Camilo Aponte-Santamaria and follow it from section B all you need is your final .gro file and .xtc file. You can convert analogous file types with the gromacs command:
+
+```
+gmx editconf -f filename.gro -n index.ndx -o filename.pdb
+```
+
+At this point we assumed you did the four analysis at Camilo's page (area per lipid, thickness, order parameter and difusion) we will now check this same properties locally.
+
+## g_lomepro
 
 The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro] (http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and  
 
