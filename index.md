@@ -156,6 +156,9 @@ and save the image as a png. Repeat the same but this time calculate the thickne
 <p align="center">
   <img width="700" src="./media/thickness.png">
 </p>
+<p align="center">
+  <img width="700" src="./media/diffusion.png">
+</p>
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
