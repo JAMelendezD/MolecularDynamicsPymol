@@ -157,6 +157,7 @@ and save the image as a png. Repeat the same but this time calculate the thickne
   <img width="700" src="./media/thickness.png">
 </p>
 
+Now we have to change our index file if we want to calculate the order parameter since it is a function of the position of the carbon atoms in the acyl chains of the lipids
 ## MDanalysis
 
 <p align="center">
