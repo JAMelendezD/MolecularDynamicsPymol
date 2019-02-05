@@ -156,6 +156,9 @@ and save the image as a png. Repeat the same but this time calculate the thickne
 <p align="center">
   <img width="700" src="./media/thickness.png">
 </p>
+
+## MDanalysis
+
 <p align="center">
   <img width="700" src="./media/diffusion.png">
 </p>
