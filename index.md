@@ -163,8 +163,20 @@ Now we have to change our index file if we want to calculate the order parameter
   <img width="400" src="./media/carbons.png">
 </p>
 
-If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time so the wait time is much longer. 
+If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time so the wait time is much longer. When it is done we will be looking only at the .pdb files and you can notice there are going to be divided by chain so we are going to visualize it separately first the sn1 open order.out_avg_sn1_atom2.pdb with pymol. Then typy in the pymol terminal the following:
 
+```
+load order.out_avg_sn1_atom4.pdb
+```
+Repeat this command for all pair atoms in the sn1 chain. Then click show all as spheres and set the sphere scale to 0.3 in the terminal finally also for all select color, spectrum and then b factor. In the terminal adjust the color of the spectrum bar, then change the background and prepare everything for a nice picture. Ray trace your image with shadows off and save it as a png. Think about a good way of looking at the order parameter locally of course in a membrane with just lipids everything looks homogeneus in x and y however you can see the global effect of moving in the z direction. 
+
+<p align="center">
+  <img width="800" src="./media/order1.png">
+</p>
+
+<p align="center">
+  <img width="800" src="./media/order2.png">
+</p>
 
 ## MDanalysis
 
