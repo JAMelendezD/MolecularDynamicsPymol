@@ -69,7 +69,6 @@ Now that our image is ray traced we cannot move it otherwise we would have to re
 
 In this section we are gonna go over the basics on how to make a molecular dynamics simulation using GROMACS and the charmm force field. We begin by going to the following webpage [charmm-gui](http://www.charmm-gui.org/). Here we select input generator followed by membrane builder, scroll down and then select membrane only system. Follow the next image closely.
 
-
 <p align="center">
   <img width="600" src="./media/charmm1.png">
 </p>
@@ -109,8 +108,55 @@ At this point we assumed you did the four analysis at Camilo's page (area per li
 
 ## g_lomepro
 
-The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro](http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and  
+The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro](http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and now we need to copy some files from a gromacs library to make sure the local version of the program runs correctly. Type the following in your command prompt:
 
+```
+locate residuetypes.dat
+```
+You should see at least one result in your terminal, follow this path an copy everything form the folder named 'top' to folder of g_lomepro. If you done this correctly you should be able to run the following command from the g_lomepro folder:
+
+```
+./g_lomepro_static_v1.0.2 
+```
+
+You should see all the documentation of the program with an error message at the end saying it cannot open file tpr.tpr. Now we are gonna change some thing from our .xtc file.
+
+```
+gmx trjconv -f step7_production.xtc -s step7_production.tpr -n index.ndx -o run.xtc -pbc mol 
+```
+
+At this point the last thing we need is to generate an index file selecting the phosphorus atom of every lipid since we are gonna perform all the calculations just using this atom positions, we can do this with gromacs.
+
+```
+gmx make_ndx -f step7_production.gro -o p.ndx 
+```
+This will open gromacs in the terminal where you need to select the group if your membrane group is number 2 type the following '2 & a p' then you can delete all the other selection with del for our case the command would be 'del 0-5', then we type 'q' and hit enter. Now you want to grab the index file the .xtc file and the .gro file and copy them inside the g_lomepro folder.
+
+```
+./g_lomepro_static_v1.0.2 -f step6.6_equilibration.trr -n p.ndx -s step6.6_equilibration.gro -apl -lip_num 128 -binx 50 -biny 50
+```
+This is going to generate multiple files we are interested in apl.out_avg.pdb, open the file using pymol. Change the representation to spheres and then type in the pymol terminal:
+
+```
+set sphere_scale, 0.5
+spectrum b, blue_white_red
+set ray_trace_mode, 3
+set ray_shadow, off
+```
+Move the image around until you are confident enough to take a picture the run:
+
+```
+ray 5000
+```
+and save the image as a png. Repeat the same but this time calculate the thickness locally. Play around with the color by typing spectrum b, and hitting tab. Your results should look similar to this:
+
+<p align="center">
+  <img width="800" src="./media/apl.png">
+</p>
+
+<p align="center">
+  <img width="800" src="./media/thickness.png">
+</p>
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
