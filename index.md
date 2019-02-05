@@ -151,11 +151,10 @@ ray 5000
 and save the image as a png. Repeat the same but this time calculate the thickness locally. Play around with the color by typing spectrum b, and hitting tab. Your results should look similar to this:
 
 <p align="center">
-  <img width="800" src="./media/apl.png">
+  <img width="700" src="./media/apl.png">
 </p>
-
 <p align="center">
-  <img width="800" src="./media/thickness.png">
+  <img width="700" src="./media/thickness.png">
 </p>
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
