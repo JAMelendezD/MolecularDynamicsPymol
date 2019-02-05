@@ -163,7 +163,7 @@ Now we have to change our index file if we want to calculate the order parameter
   <img width="700" src="./media/carbons.png">
 </p>
 
-If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file the delete all the other groups with del. 
+If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time so the wait time is much longer. 
 
 
 ## MDanalysis
