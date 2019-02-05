@@ -180,9 +180,18 @@ Repeat this command for all pair atoms in the sn1 chain. Then click show all as 
 
 ## MDanalysis
 
+For the difussion local analogous we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
+
+```
+pip install --upgrade MDAnalysis
+```
+This part of the analysis demands previous knowledge of python, if you are not familiar I suggest skipping to the next section. MDAnalysis has a function call streamlines that returns the positions and velocities of a particular selection. In our case we picked the phosphorus atom of the lipids with this information we can then use streamlines from matplotlib to generate the following plot: 
+
 <p align="center">
   <img width="700" src="./media/diffusion.png">
 </p>
+
+Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this particular case can be seen in the jupyter notebook in the github repository.
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
