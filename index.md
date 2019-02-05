@@ -157,7 +157,15 @@ and save the image as a png. Repeat the same but this time calculate the thickne
   <img width="700" src="./media/thickness.png">
 </p>
 
-Now we have to change our index file if we want to calculate the order parameter since it is a function of the position of the carbon atoms in the acyl chains of the lipids
+Now we have to change our index file if we want to calculate the order parameter since it is a function of the position of the carbon atoms in the acyl chains of the lipids, the best way to do this is going opening the .gro file in pymol then hide everything and 'show sticks, resi 1' then in the bottom right in selecting change it from residues to atoms by clicking it. Now press every atom you are going to need in your index file for our case is the carbon atoms of the acyl chains after selecting them all it should look like this:
+
+<p align="center">
+  <img width="700" src="./media/carbons.png">
+</p>
+
+If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file the delete all the other groups with del. 
+
+
 ## MDanalysis
 
 <p align="center">
