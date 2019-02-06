@@ -57,7 +57,7 @@ set ray_trace_mode, 1
 ray 2000
 ```
 
-Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code. To save the image just type `png filename.png` now that you saved it you can move around to get another snap not forgetting to ray trace it before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width, but you can control both dimensions if you type `ray 2000,1356` change the ray_trace_mode from 0 to 3 an see what type of images you can get. Finally close pymol and check the log file we created at the beginning it should have all the commands you typed and also the ones you instructed with the mouse.
+Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code. To save the image just type `png filename.png` now that you saved it you can move around to get another snap not forgetting to ray trace it before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width, but you can control both dimensions if you type `ray 2000,1356` change the ray_trace_mode from 0 to 3 an see what type of images you can get. Finally, close pymol and check the log file we created at the beginning it should have all the commands you typed and also the ones you instructed with the mouse.
 
 
 <p align="center">
@@ -115,19 +115,19 @@ The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</su
 ```
 locate residuetypes.dat
 ```
-You should see at least one result in your terminal, follow this path an copy everything form the folder named 'top' to folder of g_lomepro. If you done this correctly you should be able to run the following command from the g_lomepro folder:
+You should see at least one result in your terminal, follow this path a copy everything form the folder named 'top' to folder of g_lomepro. If you done this correctly you should be able to run the following command from the g_lomepro folder:
 
 ```
 ./g_lomepro_static_v1.0.2 
 ```
 
-You should see all the documentation of the program with an error message at the end saying it cannot open file tpr.tpr. Now we are gonna change some thing from our .xtc file.
+You should see all the documentation of the program with an error message at the end saying it cannot open file tpr.tpr. Now we are going to change something from our .xtc file.
 
 ```
 gmx trjconv -f step7_production.xtc -s step7_production.tpr -n index.ndx -o run.xtc -pbc mol 
 ```
 
-At this point the last thing we need is to generate an index file selecting the phosphorus atom of every lipid since we are gonna perform all the calculations just using this atom positions, we can do this with gromacs.
+At this point the last thing we need is to generate an index file selecting the phosphorus atom of every lipid since we are going to perform all the calculations just using this atom positions, we can do this with gromacs.
 
 ```
 gmx make_ndx -f step7_production.gro -o p.ndx 
@@ -165,7 +165,7 @@ Now we have to change our index file if we want to calculate the order parameter
   <img width="400" src="./media/carbons.png">
 </p>
 
-If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time so the wait time is much longer. When it is done we will be looking only at the .pdb files and you can notice there are going to be divided by chain so we are going to visualize it separately first the sn1 open order.out_avg_sn1_atom2.pdb with pymol. Then typy in the pymol terminal the following:
+If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time, so the wait time is much longer. When it is done we will be looking only at the .pdb files and you can notice there are going to be divided by chain, so we are going to visualize it separately first the sn1 open order.out_avg_sn1_atom2.pdb with pymol. Then type in the pymol terminal the following:
 
 ```
 load order.out_avg_sn1_atom4.pdb
@@ -193,8 +193,9 @@ This part of the analysis demands previous knowledge of python, if you are not f
   <img width="700" src="./media/diffusion.png">
 </p>
 
-Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this particular case can be seen in the jupyter notebook in the github repository.
+Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this case can be seen in the jupyter notebook in the github repository.
 
 ## Membrane-Protein 
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
+
