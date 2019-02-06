@@ -106,7 +106,7 @@ gmx editconf -f filename.gro -n index.ndx -o filename.pdb
 
 At this point we assumed you did the four analysis at Camilo's page (area per lipid, thickness, order parameter and difusion) we will now check this same properties locally.
 
-## g_lomepro
+### g_lomepro
 
 The first thing we are going to do is download g_lomepro<sup>[1](#footnote1)</sup> a software developed by Vytautas Gapsys, Bert L. de Groot, Rodolfo Briones to calculate local properties of membranes. This link will take you to their website: [g_lomepro](http://www3.mpibpc.mpg.de/groups/de_groot/g_lomepro.html). Once you downloaded it unzip it and now we need to copy some files from a gromacs library to make sure the local version of the program runs correctly. Type the following in your command prompt:
 
@@ -178,7 +178,7 @@ Repeat this command for all pair atoms in the sn1 chain. Then click show all as 
   <img width="800" src="./media/order2.png">
 </p>
 
-## MDanalysis
+### MDanalysis
 
 For the difussion local analogous we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
 
@@ -192,6 +192,8 @@ This part of the analysis demands previous knowledge of python, if you are not f
 </p>
 
 Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this particular case can be seen in the jupyter notebook in the github repository.
+
+## Membrane-Protein 
 
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
