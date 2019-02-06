@@ -16,7 +16,7 @@ remove solvent
 show cartoon, 6F6Z
 ```
 
-Most of the features in pymol can be typed in or selected in the Pymol viewer. Say for example we would like to change the color of our protein we could type: `color cyan, 6F6Z` or we could select in the Viewer by going to 6F6Z then clicking c (color) going down cyans and then cyan. For now, we are going to select `c` then `by ss` and finally `Helix (cyan) Sheet (magenta) Loop (pink) `. Notice that if you select color by chain you can see that our protein is composed of two chains.
+Most of the features in pymol can be typed in or selected in the Pymol viewer. Say for example we would like to change the color of our protein we could type: `color cyan, 6F6Z` or we could select in the Viewer by going to 6F6Z then clicking c (color) going down cyans and then cyan. For now, we are going to select c then by ss and finally Helix (cyan) Sheet (magenta) Loop (pink). Notice that if you select color by chain you can see that our protein is composed of two chains.
 
 <p align="center">
   <img width="800" src="./media/color.png">
