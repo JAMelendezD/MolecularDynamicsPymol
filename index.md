@@ -43,7 +43,7 @@ show spheres, lig2
 set sphere_scale, 0.7
 ```
 
-We can color them using the viewer selecting `color by element` and select any color we like. Notice we also changed the size of our spheres from a default of 1 to 0.7. Finally, we are going to select our protein (6F6Z) to show its accessible surface. In the viewer select the letter s (show) on the top right and select surface.  
+We can color them using the viewer selecting color by element and select any color we like. Notice we also changed the size of our spheres from a default of 1 to 0.7. Finally, we are going to select our protein (6F6Z) to show its accessible surface. In the viewer select the letter s (show) on the top right and select surface.  
 
 
 <p align="center">
