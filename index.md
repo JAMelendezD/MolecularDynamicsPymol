@@ -195,6 +195,6 @@ This part of the analysis demands previous knowledge of python, if you are not f
 
 Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this case can be seen in the jupyter notebook in the github repository.
 
-<a name="footnote1">1</a>: Check the article about g_lomepro. [VytautasPaper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
+<a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
 
 
