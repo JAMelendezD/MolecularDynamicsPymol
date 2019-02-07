@@ -57,7 +57,7 @@ set ray_trace_mode, 1
 ray 2000
 ```
 
-Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code. To save the image just type `png filename.png` now that you saved it you can move around to get another snap not forgetting to ray trace it before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width, but you can control both dimensions if you type `ray 2000,1356` change the ray_trace_mode from 0 to 3 an see what type of images you can get. Finally, close pymol and check the log file we created at the beginning it should have all the commands you typed and also the ones you instructed with the mouse.
+Now that our image is ray traced we cannot move it otherwise we would have to repeat the last line of code. To save the image just type `png filename.png` now that you saved it you can move around to get another snap not forgetting to ray trace it before saving. Notice that we used ray 2000 this creates an image of 2000x1356 in this case we only controlled the width, but you can control both dimensions if you type `ray 2000,1356` change the ray_trace_mode from 0 to 3 an see what type of images you can get. Finally, close pymol and check the log file we created at the beginning it should have all the commands you typed and the ones you instructed with the mouse.
 
 
 <p align="center">
@@ -88,7 +88,7 @@ Change all your setting to match the image and click on next step. When this ste
 gmx grompp -f step6.0_minimization.mdp -o step6.0_minimization.tpr -c step5_charmm2gmx.pdb -p topol.top -r step5_charmm2gmx.pdb -maxwarn -1
 gmx mdrun -v -deffnm step6.0_minimization
 ```
-Now that you have your system in a local minimum you have to equilibrate it by slowly releasing it from the restrains for this we are going to run a series of 6 steps:
+Now that you have your system in a local minimum we have to equilibrate it by slowly releasing it from the restrains for this we are going to run a series of 6 steps:
 
 ```
 gmx grompp -f step6.1_equilibration.mdp -o step6.1_equilibration.tpr -c step6.0_minimization.gro -p topol.top -n index.ndx -r step5_charmm2gmx.pdb -maxwarn -1
@@ -100,13 +100,13 @@ Run this same code changing the flags for each step considering that the restric
 load_traj step6.3_equilibration.trr, step6.3_equilibration
 ```
 
-When you are done with all the equilibration steps the next step is the actual simulation or the production run for this we will have to modify the step7_production.mdp file at this point if you are a beginner it is best to edit the file with a supervisor since this file is very specific for every project. Once you have edited this file you can use grompp followed by mdrun in the same way we did for the equilibration steps. Normally production runs are run in a cluster to decrease the wall time. At the end of the production run our trajectory would normally be written to a .xtc file meaning it has double precision. We can look at the trajectory using pymol again. Many tutorials on analyzing trajectories globally can be found in the internet, however, in this tutorial we would like to focus on local properties. So, I suggest you first go to the [tutorial](https://mptg-cbp.github.io/teaching/tutorials/membranes/index.html) by Camilo Aponte-Santamaria and follow it from section B all you need is your final .gro file and .xtc file. You can convert analogous file types with the gromacs command:
+When you are done with all the equilibration steps the next step is the actual simulation or the production run for this we will have to modify the step7_production.mdp file at this point if you are a beginner it is best to edit the file with a supervisor since this file is very specific for every project. Once you have edited this file you can use grompp followed by mdrun in the same way we did for the equilibration steps. Normally production runs are run in a cluster to decrease the wall time. At the end of the production run our trajectory would normally be written to a .xtc file meaning it has double precision. We can look at the trajectory using pymol again. Many tutorials on analyzing trajectories globally can be found in the internet, however, in this tutorial we would like to focus on local properties. So, I suggest you first go to the [tutorial](https://mptg-cbp.github.io/teaching/tutorials/membranes/index.html) by Camilo Aponte-Santamaria and follow it from section B all you need is your final .gro file and .xtc file. Remember you can convert analogous file types with the gromacs command:
 
 ```
 gmx editconf -f filename.gro -n index.ndx -o filename.pdb
 ```
 
-At this point we assumed you did the four analysis at Camilo's page (area per lipid, thickness, order parameter and difusion) we will now check this same properties locally.
+At this point we assumed you did the four analysis at Camilo's page (area per lipid, thickness, order parameter and difusion) we will now check these same properties locally.
 
 ### g_lomepro
 
@@ -132,7 +132,7 @@ At this point the last thing we need is to generate an index file selecting the 
 ```
 gmx make_ndx -f step7_production.gro -o p.ndx 
 ```
-This will open gromacs in the terminal where you need to select the group if your membrane group is number 2 type the following '2 & a p' then you can delete all the other selection with del for our case the command would be 'del 0-5', then we type 'q' and hit enter. Now you want to grab the index file the .xtc file and the .gro file and copy them inside the g_lomepro folder.
+This will open gromacs in the terminal where you need to select the group if your membrane group is number 2 type the following `2 & a p` then you can delete all the other selection with del for our case the command would be `del 0-5`, then we type q and hit enter. Now you want to grab the index file the .xtc file and the .gro file and copy them inside the g_lomepro folder.
 
 ```
 ./g_lomepro_static_v1.0.2 -f step6.6_equilibration.trr -n p.ndx -s step6.6_equilibration.gro -apl -lip_num 128 -binx 50 -biny 50
@@ -150,7 +150,7 @@ Move the image around until you are confident enough to take a picture the run:
 ```
 ray 5000
 ```
-and save the image as a png. Repeat the same but this time calculate the thickness locally. Play around with the color by typing spectrum b, and hitting tab. Your results should look similar to this:
+and save the image as a png. Repeat the same but this time calculate the thickness locally. Play around with the color by typing spectrum b, and hitting tab. Your results should look like this:
 
 <p align="center">
   <img width="700" src="./media/apl.png">
@@ -159,18 +159,18 @@ and save the image as a png. Repeat the same but this time calculate the thickne
   <img width="700" src="./media/thickness.png">
 </p>
 
-Now we have to change our index file if we want to calculate the order parameter since it is a function of the position of the carbon atoms in the acyl chains of the lipids, the best way to do this is going opening the .gro file in pymol then hide everything and 'show sticks, resi 1' then in the bottom right in selecting change it from residues to atoms by clicking it. Now press every atom you are going to need in your index file for our case is the carbon atoms of the acyl chains after selecting them all it should look like this:
+Now we have to change our index file if we want to calculate the order parameter since it is a function of the position of the carbon atoms in the acyl chains of the lipids, the best way to do this is going opening the .gro file in pymol then hide everything and `show sticks, resi 1` then in the bottom right in selecting change it from residues to atoms by clicking it. Now press every atom you are going to need in your index file for our case is the carbon atoms of the acyl chains after selecting them all it should look like this:
 
 <p align="center">
   <img width="400" src="./media/carbons.png">
 </p>
 
-If you notice everytime we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time, so the wait time is much longer. When it is done we will be looking only at the .pdb files and you can notice there are going to be divided by chain, so we are going to visualize it separately first the sn1 open order.out_avg_sn1_atom2.pdb with pymol. Then type in the pymol terminal the following:
+If you notice every time we select an atom pymol shows you the atom name for our case sn1 goes from C22 to C216 and sn2 C32 to C316. Now we create the index files with make_ndx entering the membrane group (2) followed by & a C22 C23 all the way to C216 and we can do the same for sn2 in the same index file then delete all the other groups with del except the membrane group. After this we should have and index file with 3 groups the membrane, sn1 and sn2. We then copy this file to the g_lomepro folder. Then we can run the same command as for area per lipid by changing apl for order then the program will ask you to select the lipid group based on the group number in our case it was 0 then the sn1 group (1) and sn2 (2), this calculation is more intensive than the previous time, so the wait time is much longer. When it is done we will be looking only at the .pdb files and you can notice there are going to be divided by chain, so we are going to visualize it separately first the sn1 open order.out_avg_sn1_atom2.pdb with pymol. Then type in the pymol terminal the following:
 
 ```
 load order.out_avg_sn1_atom4.pdb
 ```
-Repeat this command for all pair atoms in the sn1 chain. Then click show all as spheres and set the sphere scale to 0.3 in the terminal finally also for all select color, spectrum and then b factor. In the terminal adjust the color of the spectrum bar, then change the background and prepare everything for a nice picture. Ray trace your image with shadows off and save it as a png. Think about a good way of looking at the order parameter locally of course in a membrane with just lipids everything looks homogeneus in x and y however you can see the global effect of moving in the z direction. 
+Repeat this command for all pair atoms in the sn1 chain. Then click show all as spheres and set the sphere scale to 0.3 in the terminal finally also for all select color, spectrum and then b factor. In the terminal adjust the color of the spectrum bar, then change the background and prepare everything for a nice picture. Ray trace your image with shadows off and save it as a png. Think about a good way of looking at the order parameter locally of course in a membrane with just lipids everything looks homogeneous in x and y however you can see the global effect of moving in the z direction. 
 
 <p align="center">
   <img width="800" src="./media/order1.png">
@@ -182,20 +182,18 @@ Repeat this command for all pair atoms in the sn1 chain. Then click show all as 
 
 ### MDanalysis
 
-For the difussion local analogous we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
+For the diffusion local analogous we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
 
 ```
 pip install --upgrade MDAnalysis
 ```
-This part of the analysis demands previous knowledge of python, if you are not familiar I suggest skipping to the next section. MDAnalysis has a function call streamlines that returns the positions and velocities of a particular selection. In our case we picked the phosphorus atom of the lipids with this information we can then use streamlines from matplotlib to generate the following plot: 
+This part of the analysis demands previous knowledge of python, if you are not familiar I suggest skipping to the next section. MDAnalysis has a function call streamlines that returns the positions and velocities of a selection. In our case we picked the phosphorus atom of the lipids with this information we can then use streamlines from matplotlib to generate the following plot: 
 
 <p align="center">
   <img width="700" src="./media/diffusion.png">
 </p>
 
 Notice that the plot only captures an instant in time however we can do a loop over a specific range of time to create a movie. The python code for this case can be seen in the jupyter notebook in the github repository.
-
-## Membrane-Protein 
-
 <a name="footnote1">1</a>: Check the article about g_lomepro. [Vytautas Paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3882000/ "ncbi"). 
+
 
