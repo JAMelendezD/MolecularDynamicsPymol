@@ -180,14 +180,16 @@ Repeat this command for all pair atoms in the sn1 chain. Then click show all as 
   <img width="800" src="./media/order2.png">
 </p>
 
+One last comment about pymol, this is a very powerful tool for generating publication quality images and so taking advantage of the pdb format is not only useful for molecules but it has many more applications. You can check this repository for some examples: [3D Plots with pymol](https://github.com/JAMelendezD/HowToPlot) here we use short python scripts to graph parametric equations, electron orbitals and more.  
+
 ### MDanalysis
 
-For the diffusion local analogous we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
+Finally, for the local analogous of diffusion we are going to use mdanalysis a molecular dynamics library for python. You can install it running in your terminal:
 
 ```
 pip install --upgrade MDAnalysis
 ```
-This part of the analysis demands previous knowledge of python, if you are not familiar I suggest skipping to the next section. MDAnalysis has a function call streamlines that returns the positions and velocities of a selection. In our case we picked the phosphorus atom of the lipids with this information we can then use streamlines from matplotlib to generate the following plot: 
+This part of the analysis demands a little knowledge of python. MDAnalysis has a function call streamlines that returns the positions and velocities of a selection. In our case we picked the phosphorus atom of the lipids with this information we can then use streamlines from matplotlib to generate the following plot: 
 
 <p align="center">
   <img width="700" src="./media/diffusion.png">
