@@ -2,5 +2,5 @@
 
 <p align="center">
   <img width="500" src="media/ubiquitin.png">
-  <img width="300" height = '281' src="media/lipase.png">
+  <img width="500" src="media/lipase.png">
 </p>
